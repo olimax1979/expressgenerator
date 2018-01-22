@@ -13,13 +13,15 @@ passport.deserializeUser(User.deserializeUser());
 
 exports.getToken = function(user) {
     return jwt.sign(user, config.secretKey,
-        {expiresIn: 3600});
+        {expiresIn: 240});
 };
 
+/*
 exports.getTokenLogout = function(user) {
     return jwt.sign(user, config.secretKey,
         {expiresIn: 0});
 };
+*/
 
 var opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
